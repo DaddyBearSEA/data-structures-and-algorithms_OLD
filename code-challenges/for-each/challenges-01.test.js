@@ -38,12 +38,21 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
+//TODO: expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
+
+let arr = []
+ 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i = 0; i < times; i++){
+  callback(arr, num);
+  };
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,12 +70,42 @@ The inventory is formatted like this:
   { name: 'blueberries', available: false }
 ]
 
+ const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
+
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {
-  // Solution code here...
-};
+// const createList = (availableItems) => {
+//   // Solution code here...
+  
+
+
+// };
+
+const inventory = [
+  { name: 'apples', available: true }, 
+  { name: 'pears', available: true }, 
+  { name: 'oranges', available: false }, 
+  { name: 'bananas', available: true }, 
+  { name: 'blueberries', available: false },
+ ]
+
+const availableItems = inventory
+ .filter(function(event) {
+    return event.available === 'true'
+ })
+ console.log('this is avail: ' + availableItems);
+
+// const createList = (availableItems) => {
+//   // Solution code here...
+
+ 
+
+
+// };
+// console.log('end of line: ' + availableItems);
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -97,7 +136,7 @@ Run your tests from the console: jest challenges-01.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 1', () => {
+xdescribe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
   });
@@ -110,7 +149,7 @@ xdescribe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
 
   test('It should only add the available items to the list', () => {
