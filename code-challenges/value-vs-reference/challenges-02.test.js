@@ -8,8 +8,18 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 
 ------------------------------------------------------------------------------------------------ */
 
+// raisedToTheThird([2, 4, 5, -7, 0]
+// Math.pow(7, 3); 
+
 const raisedToTheThird = (arr) => {
   // Solution code here...
+ let newArray = [];
+  arr.forEach(arrValue => {
+    newArray.push(Math.pow(arrValue, 3));
+  });
+  return newArray;
+
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,6 +31,10 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 const appendTheEnd = (str) => {
   // Solution code here...
+  let newString = '';
+  const stringConcat = ' The end.';
+  return str.concat(stringConcat);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,7 +127,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should append without modifying the oiginal', () => {
     const a = 'This is my story.';
     const b = appendTheEnd(a);
@@ -141,7 +155,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xxdescribe('Testing challenge 5', () => {
+xdescribe('Testing challenge 5', () => {
   test('It should add a property to every object in an array', () => {
     const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
     setStatusAsAuthor(a);
